@@ -48,12 +48,12 @@ devops-production-lab/
 
 ## Environment Assumptions
 
-AWS region: ca-central-1
-Infrastructure will be deployed using Terraform
-Kubernetes workloads will be tested locally first and later deployed to EKS
-CI/CD workflows will be built using GitHub Actions
-Monitoring will use CloudWatch, Prometheus, and Grafana
-Automation scripts will use Python, Bash, or PowerShell
+    AWS region: ca-central-1
+    Infrastructure will be deployed using Terraform
+    Kubernetes workloads will be tested locally first and later deployed to EKS
+    CI/CD workflows will be built using GitHub Actions
+    Monitoring will use CloudWatch, Prometheus, and Grafana
+    Automation scripts will use Python, Bash, or PowerShell
 
 ## Cost-Control Notes
 
