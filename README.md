@@ -37,7 +37,7 @@ The goal is to build hands-on projects that demonstrate real-world DevOps engine
     git --version
 
 ## Repository Structure
-
+```text
 devops-production-lab/
 ├── terraform-aws-platform/
 ├── eks-platform/
@@ -45,6 +45,7 @@ devops-production-lab/
 ├── observability-stack/
 ├── automation-scripts/
 └── incident-runbooks/
+```
 
 ## Environment Assumptions
 
