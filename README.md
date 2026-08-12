@@ -10,20 +10,31 @@ The goal is to build hands-on projects that demonstrate real-world DevOps engine
 
 - AWS CLI
     ```text
-    $ aws --version
-
+    aws --version
 - Terraform
+    ```text
+    terraform version
 - Docker
+    ```text
+    docker --version
 - Kubernetes
 - kubectl
+    ```text
+    kubectl version
 - Helm
+    ```text
+    helm version
 - GitHub Actions
 - Python
+    ```text
+    python -V
 - Bash / PowerShell
 - Prometheus
 - Grafana
 - CloudWatch
 - Git
+    ```text
+    git --version
 
 ## Repository Structure
 
