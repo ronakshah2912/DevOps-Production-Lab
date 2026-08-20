@@ -216,5 +216,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Terraform
 .terraform/
 **/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# Terraform variable files containing secrets
+*.auto.tfvars
+*.auto.tfvars.json
+
+# OS / editor
+.DS_Store
+.vscode/
