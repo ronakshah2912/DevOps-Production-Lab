@@ -47,3 +47,8 @@ variable "common_tags" {
   description = "Common resources tags."
   type        = map(string)
 }
+
+variable "s3_readonly_bucket_arns" {
+  description = "List of S3 bucket ARNs for read-only access."
+  type        = list(string)
+}

@@ -1,0 +1,5 @@
+timestamp,check_name,resource_id,severity,finding,recommendation
+2026-08-24T21:35:09.033430+00:00,Security Groups Open to Internet,sg-0f5ff5df4be934093 (Devops-lab-dev-alb-sg),Medium,Web port 80 is open to the internet,Restrict inbound access to approved CIDR ranges or trusted security groups.
+2026-08-24T21:35:09.033475+00:00,Security Groups Open to Internet,sg-0f5ff5df4be934093 (Devops-lab-dev-alb-sg),Medium,Web port 443 is open to the internet,Restrict inbound access to approved CIDR ranges or trusted security groups.
+2026-08-24T21:35:09.033495+00:00,Security Groups Open to Internet,sg-017e784761cad1c60 (default),Medium,Web port 80 is open to the internet,Restrict inbound access to approved CIDR ranges or trusted security groups.
+2026-08-24T21:35:09.033508+00:00,Security Groups Open to Internet,sg-017e784761cad1c60 (default),Critical,SSH port 22 is open to the internet,Restrict inbound access to approved CIDR ranges or trusted security groups.

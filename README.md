@@ -110,3 +110,22 @@ Python, Bash, and PowerShell scripts for operational automation.
 6. Incident Runbooks
 
 Production-style troubleshooting, incident response, RCA, and disaster recovery documentation.
+
+## Day 4: IAM, Security, and Compliance Automation
+
+Completed security-focused DevOps automation work including:
+
+- EC2 instance IAM role
+- Lambda execution IAM role
+- S3 read-only least-privilege policy
+- CloudWatch logging policy
+- Python-based AWS security audit script
+- Public S3 bucket detection
+- Security group exposure detection
+- IAM access key age detection
+- Unencrypted EBS volume detection
+
+Project keywords:
+
+```text
+IAM governance, least privilege, security automation, compliance checks, AWS IAM, CloudWatch logging, S3 read-only access, IAM roles, access governance
