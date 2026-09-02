@@ -52,3 +52,27 @@ variable "s3_readonly_bucket_arns" {
   description = "List of S3 bucket ARNs for read-only access."
   type        = list(string)
 }
+
+variable "instance_type" {
+  description = "EC2 instance type for the ASG."
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "desired_capacity" {
+  description = "Desired number of EC2 instances in the ASG."
+  type        = number
+  default     = 2
+}
+
+variable "min_size" {
+  description = "Minimum number of EC2 instances in the ASG."
+  type        = number
+  default     = 2
+}
+
+variable "max_size" {
+  description = "Maximum number of EC2 instances in the ASG."
+  type        = number
+  default     = 4
+}

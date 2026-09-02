@@ -40,4 +40,28 @@ output "cloudwatch_logging_policy_arn" {
 
 output "s3_readonly_policy_arn" {
   value = module.iam.s3_readonly_policy_arn
-} 
+}
+
+output "alb_dns_name" {
+  value = module.ec2_asg_alb.alb_dns_name
+}
+
+output "autoscaling_group_name" {
+  value = module.ec2_asg_alb.autoscaling_group_name
+}
+
+output "target_group_name" {
+  value = module.ec2_asg_alb.target_group_name
+}
+
+output "high_cpu_alarm_name" {
+  value = module.ec2_asg_alb.high_cpu_alarm_name
+}
+
+output "unhealthy_hosts_alarm_name" {
+  value = module.ec2_asg_alb.unhealthy_hosts_alarm_name
+}
+
+output "target_response_time_alarm_name" {
+  value = module.ec2_asg_alb.target_response_time_alarm_name
+}

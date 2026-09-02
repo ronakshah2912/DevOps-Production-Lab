@@ -181,13 +181,13 @@ resource "aws_security_group" "alb" {
 
 resource "aws_security_group" "app" {
   name        = "${local.name_prefix}-app-sg"
-  description = "Allow application traffic only from ALB security group."
+  description = "Allow HTTP application traffic from ALB only"
   vpc_id      = aws_vpc.My-VPC.id
 
   ingress {
     description     = "Allow HTTP from ALB"
-    from_port       = 8080
-    to_port         = 8080
+    from_port       = 80
+    to_port         = 80
     protocol        = "tcp"
     security_groups = [aws_security_group.alb.id]
   }
