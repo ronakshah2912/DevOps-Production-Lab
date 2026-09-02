@@ -1,10 +1,6 @@
 # DevOps-Production-Lab
-<<<<<<< HEAD
-This is demo repository for learning purpose. This repository contains code base for each DevOps skill such as Terraform, CI/CD, Observability, Automation, EKS, Kubernetes with following DevOps best practices
-=======
 This repository documents a production-style DevOps lab that demonstrates infrastructure automation, Kubernetes operations, CI/CD, observability, incident response, and safe AI-assisted operational workflows.
 
->>>>>>> 186ea27 (Initial Terraform infrastructure code)
 ## Architecture Goal
 
 This repository is designed to simulate a production-grade DevOps environment using AWS, Terraform, Kubernetes, CI/CD, observability, automation, and incident response practices.
