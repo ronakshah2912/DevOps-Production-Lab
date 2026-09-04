@@ -14,7 +14,7 @@ variable "vpc_id" {
 }
 
 variable "vpc_cidr" {
-  description = "VPC CIDR block"
+  description = "CIDR block for the VPC."
   type        = string
 }
 

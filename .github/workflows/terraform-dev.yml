@@ -68,7 +68,7 @@ jobs:
         working-directory: .
 
       - name: Run TFLint
-        run: tflint --recursive
+        run: tflint --recursive --minimum-failure-severity=error
         working-directory: .
 
       - name: Run Checkov security scan
