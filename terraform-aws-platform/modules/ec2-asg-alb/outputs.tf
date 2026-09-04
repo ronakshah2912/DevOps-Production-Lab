@@ -1,6 +1,6 @@
 output "alb_dns_name" {
   description = "Application Load balancer DNS name"
-  value = aws_lb.app.dns_name
+  value       = aws_lb.app.dns_name
 }
 
 output "alb_arn" {

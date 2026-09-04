@@ -14,8 +14,8 @@ variable "vpc_id" {
 }
 
 variable "vpc_cidr" {
-    description = "VPC CIDR block"
-    type        = string
+  description = "VPC CIDR block"
+  type        = string
 }
 
 variable "public_subnet_ids" {

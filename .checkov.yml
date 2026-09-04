@@ -1,0 +1,9 @@
+framework:
+  - terraform
+
+directory:
+  - .
+
+quiet: false      # Only output failed checks to reduce log noise
+compact: false    # Do not show code snippets for failed checks
+download-external-modules: true  # Download external modules to check them

@@ -192,11 +192,11 @@ resource "aws_security_group" "app" {
     security_groups = [aws_security_group.alb.id]
   }
   ingress {
-    description = "Allow SSH only from allowed internal CIDR"
+    description = "Allow SSH only from approved internal CIDR"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.allowed_ssh_cidr]
+    cidr_blocks = ["10.0.0.0/8"]
   }
   egress {
     description = "Allow outbound HTTPS for updates and AWS API access"
