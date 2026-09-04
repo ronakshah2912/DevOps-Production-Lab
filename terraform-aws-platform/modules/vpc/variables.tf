@@ -34,11 +34,11 @@ variable "enable_nat_gateway" {
   default     = true
 }
 
-variable "allowed_ssh_cidr" {
-  description = "CIDR block allowed for SSH access."
-  type        = string
-  default     = "10.0.0.0/16"
-}
+# variable "allowed_ssh_cidr" {
+#   description = "CIDR block allowed for SSH access."
+#   type        = string
+#   default     = "10.0.0.0/16"
+# }
 
 variable "common_tags" {
   description = "Common tags to apply to all resources."

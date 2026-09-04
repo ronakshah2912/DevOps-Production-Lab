@@ -12,7 +12,7 @@ module "vpc" {
   public_subnet_cidrs  = var.public_subnet_cidrs
   private_subnet_cidrs = var.private_subnet_cidrs
   enable_nat_gateway   = var.enable_nat_gateway
-  allowed_ssh_cidr     = var.allowed_ssh_cidr
+  #allowed_ssh_cidr     = var.allowed_ssh_cidr
 
   common_tags = var.common_tags
 }
@@ -34,8 +34,8 @@ module "ec2_asg_alb" {
   project_name = var.project_name
   environment  = var.environment
 
-  vpc_id                   = module.vpc.vpc_id
-  vpc_cidr                  = module.vpc.vpc_cidr
+  vpc_id = module.vpc.vpc_id
+  #vpc_cidr                  = module.vpc.vpc_cidr
   public_subnet_ids         = module.vpc.public_subnet_ids
   private_subnet_ids        = module.vpc.private_subnet_ids
   alb_security_group_id     = module.vpc.alb_security_group_id

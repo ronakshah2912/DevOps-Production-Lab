@@ -38,10 +38,10 @@ variable "enable_nat_gateway" {
   type        = bool
 }
 
-variable "allowed_ssh_cidr" {
-  description = "CIDR block allowed for SSH access."
-  type        = string
-}
+# variable "allowed_ssh_cidr" {
+#   description = "CIDR block allowed for SSH access."
+#   type        = string
+# }
 
 variable "common_tags" {
   description = "Common resources tags."
