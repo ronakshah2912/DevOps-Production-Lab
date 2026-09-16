@@ -77,7 +77,7 @@ jobs:
           directory: terraform-aws-platform
           framework: terraform
           config_file: .checkov.yml
-          soft_fail: true
+          soft_fail: false
 
       - name: Terraform plan
         run: terraform plan -input=false -out=tfplan
