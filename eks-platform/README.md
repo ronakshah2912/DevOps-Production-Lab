@@ -80,3 +80,78 @@ In a production environment, this image should be:
 - Pushed to Amazon ECR or another approved registry
 - Deployed to Kubernetes or ECS
 - Monitored using logs, metrics, and health checks
+
+
+
+# Day 9: Kubernetes Deployment Fundamentals with Production Patterns
+
+## Objective
+
+Deploy a production-style Kubernetes application using manifests for Namespace, Deployment, Service, ConfigMap, Secret, resource requests and limits, readiness probe, and liveness probe.
+
+## Components Created
+
+| Resource | Purpose |
+|---|---|
+| Namespace | Isolates lab resources |
+| ConfigMap | Stores non-sensitive application configuration |
+| Secret | Stores sensitive configuration |
+| Deployment | Manages application replicas and rolling updates |
+| Service | Provides stable internal networking |
+| Readiness Probe | Controls when pod receives traffic |
+| Liveness Probe | Restarts unhealthy containers |
+| Resource Requests | Helps Kubernetes schedule pods |
+| Resource Limits | Prevents resource overuse |
+
+## Apply Manifests
+
+```bash
+kubectl apply -f manifests/
+```
+
+## Validate
+
+```bash
+kubectl get all -n devops-lab
+kubectl get configmap,secret -n devops-lab
+kubectl describe deployment devops-sample-app -n devops-lab
+```
+
+## Test App
+
+```bash
+kubectl port-forward svc/devops-sample-app-service 8080:80 -n devops-lab
+curl http://localhost:8080/
+curl http://localhost:8080/health
+curl http://localhost:8080/ready
+```
+
+## Production Troubleshooting Scenarios
+
+This lab covers:
+
+- CrashLoopBackOff
+- ImagePullBackOff
+- ConfigMap error
+- Probe 
+
+## Key Troubleshooting Commands
+
+```bash
+kubectl logs
+kubectl describe pod
+kubectl get events
+kubectl exec
+```
+
+## Production Notes
+
+In production, these manifests should be enhanced with:
+- Ingress or Gateway API
+- Horizontal Pod Autoscaler
+- PodDisruptionBudget
+- NetworkPolicy
+- External Secrets or AWS Secrets Manager integration
+- CI/CD deployment workflow
+- Image scanning
+- Kubernetes RBAC
