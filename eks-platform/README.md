@@ -155,3 +155,98 @@ In production, these manifests should be enhanced with:
 - CI/CD deployment workflow
 - Image scanning
 - Kubernetes RBAC
+
+
+
+# Day 10: Helm Chart for Application Deployment
+
+## Objective
+
+Create a reusable Helm chart to deploy the DevOps sample application into multiple environments with different configuration.
+
+## Files Created
+
+```text
+Chart.yaml
+values.yaml
+values-dev.yaml
+values-prod.yaml
+templates/deployment.yaml
+templates/service.yaml
+templates/ingress.yaml
+```
+## Dev Deployment
+
+```bash
+helm upgrade --install devops-sample-app-dev . \
+  -f values-dev.yaml \
+  --namespace devops-lab-dev \
+  --create-namespace
+```
+
+## Dev Deployment
+
+```bash
+helm upgrade --install devops-sample-app-prod . \
+  -f values-prod.yaml \
+  --namespace devops-lab-prod \
+  --create-namespace
+```
+
+## Validate
+
+```bash
+helm list -A
+kubectl get all -n devops-lab-dev
+kubectl get all -n devops-lab-prod
+kubectl get ingress -A
+```
+
+## Test Using Port Forward
+
+```bash
+kubectl port-forward svc/devops-sample-app-dev-devops-sample-app 8081:80 -n devops-lab-dev
+curl http://localhost:8081/
+```
+
+```bash
+kubectl port-forward svc/devops-sample-app-prod-devops-sample-app 8082:80 -n devops-lab-prod
+curl http://localhost:8082/
+```
+## Key Skills
+
+- Helm chart structure
+- Environment-specific values
+- Deployment templating
+- Service templating
+- Ingress templating
+- Dev/prod separation
+- Helm upgrade
+- Helm rollback
+- Kubernetes release management
+
+## From chart folder:
+
+```bash
+helm lint .
+helm template devops-sample-app-dev . -f values-dev.yaml
+helm template devops-sample-app-prod . -f values-prod.yaml
+helm list -A
+kubectl get all -n devops-lab-dev
+kubectl get all -n devops-lab-prod
+kubectl get ingress -A
+```
+
+## Check pod health:
+
+```bash
+kubectl get pods -n devops-lab-dev
+kubectl get pods -n devops-lab-prod
+```
+
+## Check rollout:
+
+```bash
+kubectl rollout status deployment/devops-sample-app-dev-devops-sample-app -n devops-lab-dev
+kubectl rollout status deployment/devops-sample-app-prod-devops-sample-app -n devops-lab-prod
+```

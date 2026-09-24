@@ -1,0 +1,53 @@
+replicaCount: 2
+
+image:
+  repository: devops-sample-app
+  pullPolicy: IfNotPresent
+  tag: prod
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  host: app.local
+  path: /
+  pathType: prefix
+
+env:
+  APP_ENV: default
+  APP_NAME: devops-production-app
+  APP_VERSION: 1.0.0
+  LOG_LEVEL: INFO
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+
+probes:
+  readiness:
+    path: /ready
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+  liveness:
+    path: /health
+    initialDelaySeconds: 15
+    periodSeconds: 20
+    timeoutSeconds: 3
+    failureThreshold: 3
+
+podLabels:
+  project: devops-production-lab
+  managedBy: helm
