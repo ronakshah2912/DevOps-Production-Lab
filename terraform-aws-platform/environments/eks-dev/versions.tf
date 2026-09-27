@@ -14,8 +14,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "ronak-devops-lab-terraform-state-ca-central-1"
-    key          = "dev/vpc/terraform.tfstate"
+    bucket       = "ronak-devops-lab-eks-terraform-state-ca-central-1"
+    key          = "eks-dev/terraform.tfstate"
     region       = "ca-central-1"
     encrypt      = true
     use_lockfile = true

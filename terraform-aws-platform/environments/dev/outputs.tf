@@ -65,3 +65,31 @@ output "unhealthy_hosts_alarm_name" {
 output "target_response_time_alarm_name" {
   value = module.ec2_asg_alb.target_response_time_alarm_name
 }
+
+output "cluster_name" {
+  value = module.eks.cluster_name
+}
+
+output "cluster_endpoint" {
+  value = module.eks.cluster_endpoint
+}
+
+output "node_group_name" {
+  value = module.eks.node_group_name
+}
+
+output "cluster_security_group_id" {
+  value = module.eks.cluster_security_group_id
+}
+
+output "node_security_group_id" {
+  value = module.eks.node_security_group_id
+}
+
+output "oidc_provider_arn" {
+  value = module.eks.oidc_provider_arn
+}
+
+output "eks_node_role_arn" {
+  value = module.eks.eks_node_role_arn
+}

@@ -1,0 +1,51 @@
+replicaCount: 2
+
+image:
+  repository: 072510493080.dkr.ecr.ca-central-1.amazonaws.com/devops-sample-app
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: false
+  className: nginx
+  host: eks.devops-lab.local
+  path: /
+  pathType: Prefix
+
+env:
+  APP_NAME: devops-production-lab
+  APP_ENV: eks-dev
+  APP_VERSION: "1.0.0"
+  LOG_LEVEL: INFO
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+probes:
+  readiness:
+    path: /ready
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+  liveness:
+    path: /health
+    initialDelaySeconds: 15
+    periodSeconds: 20
+    timeoutSeconds: 3
+    failureThreshold: 3
+
+podLabels:
+  project: devops-production-lab
+  environment: eks-dev
+  managedBy: helm

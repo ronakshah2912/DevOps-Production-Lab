@@ -76,3 +76,39 @@ variable "max_size" {
   type        = number
   default     = 4
 }
+
+variable "cluster_version" {
+  description = "EKS Kubernetes version."
+  type        = string
+  default     = "1.34"
+}
+
+variable "node_instance_types" {
+  description = "List of EC2 instance types for the EKS managed node group."
+  type        = list(string)
+  default     = ["t3.medium"]
+}
+
+variable "node_desired_size" {
+  description = "Desired number of worker nodes in the EKS managed node group."
+  type        = number
+  default     = 2
+}
+
+variable "node_max_size" {
+  description = "Maximum number of worker nodes in the EKS managed node group."
+  type        = number
+  default     = 3
+}
+
+variable "node_min_size" {
+  description = "Minimum number of worker nodes in the EKS managed node group."
+  type        = number
+  default     = 1
+}
+
+variable "node_disk_size" {
+  description = "Disk size for each worker node in the EKS managed node group."
+  type        = number
+  default     = 20
+}
