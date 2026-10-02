@@ -47,6 +47,8 @@ resource "aws_subnet" "My-Public-Subnet" {
     {
       Name = "${local.name_prefix}-public-subnet-${count.index + 1}"
       Tier = "Public"
+      "kubernetes.io/role/elb"                  = "1"
+      "kubernetes.io/cluster/${var.project_name}-${var.environment}-eks" = "shared"
     }
   )
 }
@@ -62,6 +64,8 @@ resource "aws_subnet" "My-Private-Subnet" {
     {
       Name = "${local.name_prefix}-private-subnet-${count.index + 1}"
       Tier = "Private"
+      "kubernetes.io/role/internal-elb"        = "1"
+      "kubernetes.io/cluster/${var.project_name}-${var.environment}-eks" = "shared"
     }
   )
 }
