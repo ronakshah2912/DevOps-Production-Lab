@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-sample-app-dev
+  namespace: argocd
+  labels:
+    app: devops-sample-app
+    environment: dev
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/ronakshah2912/DevOps-Production-Lab.git
+    targetRevision: main
+    path: eks-platform/gitops/apps/devops-sample-app/dev
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops-lab-gitops-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
