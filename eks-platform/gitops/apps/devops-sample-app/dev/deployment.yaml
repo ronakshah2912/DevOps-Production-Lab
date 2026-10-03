@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-sample-app
+  namespace: devops-lab-gitops-dev
+  labels:
+    app: devops-sample-app
+    environment: dev
+    managed-by: argocd
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: devops-sample-app
+      environment: dev
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: devops-sample-app
+        environment: dev
+        managed-by: argocd
+    spec:
+      containers:
+        - name: devops-sample-app
+          image: 072510493080.dkr.ecr.ca-central-1.amazonaws.com/devops-sample-app:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_NAME
+              value: "devops-production-lab"
+            - name: APP_ENV
+              value: "gitops-dev"
+            - name: APP_VERSION
+              value: "1.0.0"
+            - name: LOG_LEVEL
+              value: "INFO"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
