@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-sample-app
+  namespace: devops-lab-gitops-prod
+  labels:
+    app: devops-sample-app
+    environment: prod
+    managed-by: argocd
+spec:
+  type: ClusterIP
+  selector:
+    app: devops-sample-app
+    environment: prod
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080

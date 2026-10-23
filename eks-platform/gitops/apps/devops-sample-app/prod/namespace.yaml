@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: devops-lab-gitops-prod
+  labels:
+    environment: prod
+    managed-by: argocd
+    project: devops-production-lab
