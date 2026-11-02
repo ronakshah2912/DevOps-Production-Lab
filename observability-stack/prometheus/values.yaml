@@ -1,0 +1,35 @@
+prometheus:
+  prometheusSpec:
+    retention: 2d
+
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: "1"
+        memory: 2Gi
+
+    serviceMonitorSelector:
+      matchLabels:
+        release: monitoring
+
+    serviceMonitorNamespaceSelector: {}
+
+    podMonitorSelector:
+      matchLabels:
+        release: monitoring
+
+    podMonitorNamespaceSelector: {}
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+
+grafana:
+  enabled: false
+
+alertmanager:
+  enabled: false

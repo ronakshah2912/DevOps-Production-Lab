@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: devops-sample-app
+  namespace: devops-lab-eks
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: devops-sample-app
+      app.kubernetes.io/instance: devops-sample-app-eks
+
+  namespaceSelector:
+    matchNames:
+      - devops-lab-eks
+
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
+      scrapeTimeout: 5s
